@@ -1,4 +1,4 @@
-function [Benefice, beneficeMax] = benefice()
+function [Benefice, beneficeMax, ProductionOpt] = benefice()
     TempsProdMachine = tempsMachine();
     PrixVente = prixVente();
     PrixAchatMatierePremieres = prixAchat();

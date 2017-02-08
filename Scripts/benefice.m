@@ -1,9 +1,13 @@
 function [Benefice] = benefice()
-    TempsProdParMachine = tempsMachine();
+    TempsProdMachine = tempsMachine();
     PrixVente = prixVente();
-    PrixAchatMatierePremieres = prixAchatMatierePremiere();
-    QuantiteMatierePremiereProd = quantite();
-    CoutHoraireMachine = coutHoraire();
+    PrixAchatMatierePremieres = prixAchat();
+    MatierePremiereProduit = matPremProduit();
+    CoutHoraireMachine = coutMachineH();
     
+    Benefice = PrixVente - PrixAchatMatierePremieres * MatierePremiereProduit;
+    Benefice = Benefice - CoutHoraireMachine * transpose(TempsProdMachine) / 60;
+    Benefice = -transpose(Benefice);
     
+    linprog(Benefice, AForLinProg(), bForLinProg, [], [], lbForLinProg, [])
 end

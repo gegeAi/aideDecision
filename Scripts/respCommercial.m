@@ -1,18 +1,19 @@
-function [ProductionOpt, beneficeProd] = respCommercial(choixOpt, valMin, ecartFamilleMax)
+function [ProductionOpt, beneficeProd] = respCommercial(choixOpt, ecartFamilleMax)
     
-    F = [1 ; 1 ; 1 ; -1 ; -1 ; -1];
-    AForLin = [AForLinProg() ; transpose(F) ; transpose(-F)];
-    bForLin = [ bForLinProg() ; -ecartFamilleMax ; ecartFamilleMax ; -valMin];
-    [Benefice, beneficeMax, ProductionOpt] = benefice();
+    DifferenceFamille = [1 ; 1 ; 1 ; -1 ; -1 ; -1];
+    AForLin = [AForLinProg() ; transpose(DifferenceFamille) ; transpose(-DifferenceFamille)];
+    bForLin = [ bForLinProg() ; ecartFamilleMax ; ecartFamilleMax ];
+    [Benefice, unused1, unused2] = benefice();
     
-    if (choixOpt == 1) % benefice >= valMin
-        AForLin = [AForLin ; -transpose(Benefice)];
+    if (choixOpt == 1) % optimise le benefice
+        ProductionOpt = linprog(-Benefice, AForLin, bForLin, [], [], lbForLinProg, []);
     end
-    if (choixOpt == 2) % nbProduit >= valMin
-        AForLin = [AForLin ; -1 -1 -1 -1 -1 -1];
+    if (choixOpt == 2) % optimise le nb de produit produit
+        F = ones(6, 1);
+        ProductionOpt = linprog(-F, AForLin, bForLin, [], [], lbForLinProg, []);
     end
     
-    ProductionOpt = linprog(F, AForLin, bForLin, [], [], lbForLinProg, []);
     beneficeProd = transpose(Benefice) * ProductionOpt;
+    ecartFamille = transpose(DifferenceFamille) * ProductionOpt
     
 end

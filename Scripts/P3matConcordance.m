@@ -1,9 +1,10 @@
-function [ Concordance ] = matriceConcordance()
+
+function [ Concordance ] = matriceConcordance(MdJ)
 %MATRICECONCORDANCE Retourne la matrice de concordance issue de la matrice
 % des jugements table 6
 % 
 
-MdJ = jugementSansDominances();
+%MdJ = jugementSansDominances();
 
 nbreAction = size(MdJ, 1);
 

@@ -1,4 +1,4 @@
-function [ conc ] = concordance( Ai, Aj )
+function [ conc ] = P3concordance( Ai, Aj )
 %CONCORDANCE retourne la concordance de l'action Ai
 %à Aj (vecteur de coefficients) dans une analyse mutli-critère
 %

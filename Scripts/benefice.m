@@ -7,10 +7,9 @@ function [Benefice, beneficeMax, ProductionOpt] = benefice()
     
     Benefice = PrixVente - PrixAchatMatierePremieres * MatierePremiereProduit;
     Benefice = Benefice - CoutHoraireMachine * transpose(TempsProdMachine) / 60;
-    Benefice = -transpose(Benefice);
+    Benefice = transpose(Benefice);
     
-    ProductionOpt = linprog(Benefice, AForLinProg(), bForLinProg, [], [], lbForLinProg, []);
+    ProductionOpt = linprog(-Benefice, AForLinProg(), bForLinProg, [], [], lbForLinProg, []);
     
-    Benefice = -Benefice;
     beneficeMax = transpose(ProductionOpt) * Benefice;
 end

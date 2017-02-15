@@ -14,6 +14,6 @@ function [ProductionOpt, beneficeProd] = respCommercial(choixOpt, ecartFamilleMa
     end
     
     beneficeProd = transpose(Benefice) * ProductionOpt;
-    ecartFamille = transpose(DifferenceFamille) * ProductionOpt
+    ecartFamille = transpose(DifferenceFamille) * ProductionOpt;
     
 end

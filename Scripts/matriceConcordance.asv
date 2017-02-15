@@ -5,12 +5,12 @@ function [ C ] = matriceConcordance()
 
 MdJ = jugementSansDominances();
 
-nbreAction = size(MdJ, 1);
+[ nbreAction nbreCriteres ] = size(MdJ);
 
 C = ones(nbreAction, nbreAction);
 
-for i = 1:nbreAction
-    for j = 1:nbreAction
+for i = 0:nbreAction
+    for j = 0:nbreAction
         if (i ~= j)
             C(i,j) = concordance(MdJ(i,:), MdJ(j,:));
         end

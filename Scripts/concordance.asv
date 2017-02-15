@@ -4,12 +4,12 @@ function [ conc ] = concordance( Ai, Aj )
 %
 
 sumpk = 0;
-sumpi = size(Ai, 2);
+sumpi = size(Ai);
 
-for i = 1:size(Ai, 2)  
-    if Ai(i) >= Aj(i)
-        sumpk = sumpk + 1;
-    end
+for i = 1:size(Ai)
+    
+    if Ai(i) 
+    
 end
 
 conc = sumpk / sumpi;

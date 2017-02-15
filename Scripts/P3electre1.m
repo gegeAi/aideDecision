@@ -2,6 +2,8 @@ function [ Solution ] = P3electre1( Poids, seuilConcordance, seuilDiscordance )
 %P Summary of this function goes here
 %   Detailed explanation goes here
 
+Solution = [];
+
 JugementPondere = jugementPondere(Poids);
 
 Concordance = P3matConcordance(JugementPondere);
@@ -21,7 +23,7 @@ end
 
 for i = 1:1:size(Noyaux, 2)
     if Noyaux(i) == 0
-        i
+        Solution = [Solution i];
     end
 end
 

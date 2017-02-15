@@ -2,7 +2,7 @@ function [ M ] = jugementPondere( poids )
 %JUGEMENTPONDEREE Summary of this function goes here
 %   Detailed explanation goes here
 
-M = jugementSansDominances();
+M = jugement();
 
 poidsTriee = unique(poids);
 

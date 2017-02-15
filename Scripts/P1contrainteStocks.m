@@ -5,7 +5,7 @@ function [ NouveauA, Nouveaub ] = P1contrainteStocks( seuilActivite )
 APrec = AForLinProg() ;
 BPrec = bForLinProg() ;
     
-%BeneficeParProduit = 1337 ;%ajouter à A -> matrice ligne
+%BeneficeParProduit %ajouter à A -> matrice ligne
 
 [BeneficeParProduit, beneficeMax] = benefice() ;
 seuilBenefice = beneficeMax*seuilActivite ;%ajouter à B -> entier

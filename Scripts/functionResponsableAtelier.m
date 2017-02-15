@@ -1,6 +1,7 @@
 function [ f ] = functionResponsableAtelier()
-%UNTITLED5 Summary of this function goes here
-%   Detailed explanation goes here
+%FONCTIONRESPONSABLEATELIER returne le vecteur descripteur de la fonction
+% objectif pour le responsable atelier 
+% 
 
 f = [ -1;
       -1;

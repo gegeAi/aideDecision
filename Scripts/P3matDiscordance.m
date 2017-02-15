@@ -1,7 +1,6 @@
-function [ M ] = P3matDiscordance(A )
+function [ M ] = P3matDiscordance( A )
 %P3MATDISCORDANCE Summary of this function goes here
 %   Detailed explanation goes here
-
 
 sizeA = size(A,1);
 

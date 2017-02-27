@@ -6,7 +6,6 @@ options = optimset('Display', 'none');
 
 [A, b] = ContraintesEtDegradation(seuilsPourcent, seuilsAffine);
 [production, unused, exitFlag, unused] = linprog(-benefice(), A, b, [], [], lbForLinProg, [], [], options);
-
 coordonnees = [transpose(benefice())*production ;
                 -transpose(functionResponsableAtelier)*production;
                 abs([1  1  1  -1  -1  -1]*production);

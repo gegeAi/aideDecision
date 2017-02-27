@@ -5,16 +5,17 @@ function [ Contraintes, b ] = ContraintesEtDegradation(degrad, degradAffine)
 [Benefice, unused, unused] = benefice();
 FcRespCommercial = [1  1  1  -1  -1  -1];
 
+FcStock = sum(matPremProduit()) + 1;
+
 Contraintes = AForLinProg();
-Contraintes = [Contraintes; 
-                -transpose(Benefice); 
+Contraintes = [Contraintes;
                 transpose(functionResponsableAtelier());
                 FcRespCommercial;
                 -FcRespCommercial;
-                -transpose(functionRespPersonnel());
-                -transpose(Benefice)];
+                transpose(functionRespPersonnel());
+                FcStock];
 
-b = bForLinProg;
+b = bForLinProg();
 
 seuils = degradation(degrad, degradAffine);
 

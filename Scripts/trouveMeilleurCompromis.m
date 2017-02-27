@@ -8,28 +8,25 @@ valeurDeConfiance = 1000000;
 
 point = [0 0 0 0 0];
 
-for i=debut:pas:fin
-    for j=0:pas:1
-        for k=0:pas:1
-            for l=0:pas:1
-                [prod, coord, exitFlag] = etudeMulticritere([i j k l], [0;-50;-50;0;0]);
-                tpsConfiance = 0;
-                for n=1:5
-                    denom = optimal(n);
-                    if(optimal(n) == 0)
-                        denom = 50;
-                    end
-                    tpsConfiance = tpsConfiance + abs(coord(n)-optimal(n))/denom;
+for i=0.7:pas:1 % au minimum 70% du nb de produits max fabriqués
+    for k=0:pas:0.6 % au maximum 1,6 fois l'utilisation optimale des machines 1 et 3
+        for l=debut:pas:fin % au maximum fin + 1 fois le stock optimal
+            [prod, coord, exitFlag] = etudeMulticritere([i 0 k l], [0;-50;-50;0;0]);
+            tpsConfiance = 0;
+            for n=1:5
+                denom = optimal(n);
+                if(optimal(n) == 0)
+                    denom = 50;
                 end
-                if tpsConfiance < valeurDeConfiance && exitFlag == 1
-                    production = prod;
-                    coordonnees = coord;
-                    valeurDeConfiance = tpsConfiance;
-                    point = [i j k l];
-                end
+                tpsConfiance = tpsConfiance + abs(coord(n)-optimal(n))/denom;
+            end
+            if tpsConfiance < valeurDeConfiance && exitFlag == 1
+                production = prod;
+                coordonnees = coord;
+                valeurDeConfiance = tpsConfiance;
+                point = [i 0 k l];
             end
         end
-    
     end
 end
 end

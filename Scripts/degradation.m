@@ -19,7 +19,7 @@ degradation = [
             
 MatPourcent = [seuilPourcent(1) 0 0 0 0 ;
                 0 seuilPourcent(2) 0 0 0 ;
-                0 0 seuilPourcent(3) 0 0 ;
+                0 0 seuilPourcent(2) 0 0 ;
                 0 0 0 1+seuilPourcent(3) 0 ;
                 0 0 0 0 1+seuilPourcent(4)];
             

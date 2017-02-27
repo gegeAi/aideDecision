@@ -1,6 +1,8 @@
 function [ degradation ] = degradation(seuilPourcent, seuilsAffine)
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
+seuilPourcent
+seuilsAffine
 
 [unused, seuilCpt, unused] = benefice;
 seuilRespAtelier = transpose(functionResponsableAtelier)*LPResponsableAtelier();
@@ -19,10 +21,12 @@ degradation = [
             
 MatPourcent = [seuilPourcent(1) 0 0 0 0 ;
                 0 seuilPourcent(2) 0 0 0 ;
-                0 0 seuilPourcent(3) 0 0 ;
+                0 0 seuilPourcent(2) 0 0 ;
                 0 0 0 1+seuilPourcent(3) 0 ;
                 0 0 0 0 1+seuilPourcent(4)];
             
+            
+            MatPourcent*degradation
 degradation = MatPourcent*degradation - seuilsAffine; 
 
 end

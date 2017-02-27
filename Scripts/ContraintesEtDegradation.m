@@ -13,7 +13,8 @@ Contraintes = [Contraintes;
                 FcRespCommercial;
                 -FcRespCommercial;
                 transpose(functionRespPersonnel());
-                FcStock];
+                FcStock;
+                -transpose(Benefice)];
 
 b = bForLinProg();
 

@@ -8,10 +8,12 @@ valeurDeConfiance = 1000000;
 
 point = [0 0 0 0 0];
 
+seuilBenefice = 0.8;
+
 for i=0.7:pas:1 % au minimum 70% du nb de produits max fabriqués
     for k=0:pas:0.6 % au maximum 1,6 fois l'utilisation optimale des machines 1 et 3
         for l=debut:pas:fin % au maximum fin + 1 fois le stock optimal
-            [prod, coord, exitFlag] = etudeMulticritere([i 0 k l], [0;-50;-50;0;0]);
+            [prod, coord, exitFlag] = etudeMulticritere([i 0 k l seuilBenefice], [0;-50;-50;0;0; 0]);
             tpsConfiance = 0;
             for n=1:5
                 denom = optimal(n);

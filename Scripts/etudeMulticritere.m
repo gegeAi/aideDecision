@@ -5,6 +5,8 @@ function [ production, coordonnees, exitFlag ] = etudeMulticritere(seuilsPourcen
 options = optimset('Display', 'none');
 
 [A, b] = ContraintesEtDegradation(seuilsPourcent, seuilsAffine);
+A
+b
 [production, unused, exitFlag, unused] = linprog(-benefice(), A, b, [], [], lbForLinProg, [], [], options);
 coordonnees = [transpose(benefice())*production ;
                 -transpose(functionResponsableAtelier)*production;

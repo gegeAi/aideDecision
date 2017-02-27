@@ -1,6 +1,5 @@
-function [] = P2Interactive()
+function [MatriceGain] = P2Interactive()
     MatriceGain = matriceGain();
-    calcPourcentage(MatriceGain);
 end
 
 function [MatriceGain] = matriceGain ()
@@ -28,11 +27,4 @@ function [ValeurCritere] = calcOptimum(Production)
     respCommercial = -abs(Production * [1; 1; 1; -1; -1; -1]);
     respPersonnel = -Production * functionRespPersonnel();
     ValeurCritere = [benefice respAtelier respStock respCommercial respPersonnel];
-end
-
-function [] = calcPourcentage(MatriceGain)
-    for i = 1:1:size(MatriceGain, 1)
-        ColonneGain = MatriceGain(:,i)
-        
-    end
 end

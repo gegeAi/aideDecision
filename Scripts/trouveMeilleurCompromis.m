@@ -1,4 +1,4 @@
-function [ production, coordonnees ] = trouveMeilleurCompromis(pas)
+function [ production, coordonnees, valeurDeConfiance] = trouveMeilleurCompromis(pas, debut, fin)
 %UNTITLED5 Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -6,7 +6,7 @@ optimal = [10159.2083333325 389.035087719208 0 36.2274000000000 1212.50000000000
 
 valeurDeConfiance = 1000000;
 
-for i=0:pas:1
+for i=debut:pas:fin
     for j=0:pas:1
         for k=0:pas:1
             for l=0:pas:1

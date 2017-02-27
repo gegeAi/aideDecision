@@ -13,7 +13,7 @@ Concordance = ones(nbreAction, nbreAction);
 for i = 1:nbreAction
     for j = 1:nbreAction
         if (i ~= j)
-            Concordance(i,j) = concordance(MdJ(i,:), MdJ(j,:));
+            Concordance(i,j) = P3concordance(MdJ(i,:), MdJ(j,:));
         end
     end
 end

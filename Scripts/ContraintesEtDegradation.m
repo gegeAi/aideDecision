@@ -14,7 +14,7 @@ Contraintes = [Contraintes;
                 -transpose(functionRespPersonnel());
                 -transpose(Benefice)];
 
-b = bForLinProg;
+b = bForLinProg();
 
 seuils = degradation(degrad, degradAffine);
 

@@ -6,7 +6,7 @@ Solution = [];
 
 JugementPondere = jugementPondere(Poids);
 
-Concordance = P3matConcordance(JugementPondere);
+Concordance = P3matConcordance(JugementPondere, Poids);
 Discordance = P3matDiscordance(JugementPondere);
 
 Noyaux = zeros(1,size(JugementPondere,1));
